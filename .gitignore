@@ -11,5 +11,9 @@ build/
 coverage/
 *.log
 
+# Local samples, secrets and working notes.
+/.local/
+/AGENTS.md
+
 .DS_Store
 Thumbs.db

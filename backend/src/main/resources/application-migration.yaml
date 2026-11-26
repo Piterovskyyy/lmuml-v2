@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-application-type: none
+    keep-alive: false
+  flyway:
+    enabled: true
+    placeholders:
+      runtime: ${LMUML_RUNTIME_ROLE}
+      importer: ${LMUML_IMPORT_ROLE}
