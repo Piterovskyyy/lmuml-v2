@@ -1,0 +1,19 @@
+spring:
+  main:
+    web-application-type: none
+    keep-alive: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+  flyway:
+    enabled: false
+
+lmuml:
+  api-football:
+    enabled: true
+
+management:
+  endpoint:
+    health:
+      # No datasource or HTTP server exists in this one-shot process.
+      validate-group-membership: false

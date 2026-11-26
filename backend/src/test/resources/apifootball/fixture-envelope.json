@@ -1,0 +1,79 @@
+{
+  "get": "fixtures",
+  "parameters": { "id": "7001" },
+  "errors": [],
+  "results": 1,
+  "paging": { "current": 1, "total": 1 },
+  "response": [
+    {
+      "fixture": {
+        "id": 7001,
+        "referee": null,
+        "timezone": "Europe/Warsaw",
+        "date": "2026-10-25T02:30:00+02:00",
+        "timestamp": 1792888200,
+        "periods": { "first": 1792888200, "second": 1792891800 },
+        "venue": { "id": null, "name": "Example Ground", "city": "Example City" },
+        "status": { "long": "Match Finished", "short": "FT", "elapsed": 90, "extra": 4 },
+        "future_fixture_field": true
+      },
+      "league": {
+        "id": 9001,
+        "name": "Example Cup",
+        "country": "World",
+        "logo": null,
+        "flag": null,
+        "season": 2026,
+        "round": "Quarter-finals",
+        "standings": false
+      },
+      "teams": {
+        "home": { "id": 11, "name": "North City", "logo": null, "winner": true },
+        "away": { "id": 22, "name": "South Town", "logo": null, "winner": false }
+      },
+      "goals": { "home": 2, "away": 1 },
+      "score": {
+        "halftime": { "home": 1, "away": 0 },
+        "fulltime": { "home": 2, "away": 1 },
+        "extratime": { "home": null, "away": null },
+        "penalty": { "home": null, "away": null }
+      },
+      "events": [
+        {
+          "time": { "elapsed": 31, "extra": null },
+          "team": { "id": 11, "name": "North City", "logo": null },
+          "player": { "id": 51, "name": "Example Player" },
+          "assist": { "id": null, "name": null },
+          "type": "Goal",
+          "detail": "Normal Goal",
+          "comments": null
+        }
+      ],
+      "lineups": [
+        {
+          "team": {
+            "id": 11,
+            "name": "North City",
+            "logo": null,
+            "colors": {
+              "player": { "primary": "112233", "number": "ffffff", "border": "112233" },
+              "goalkeeper": { "primary": "445566", "number": "ffffff", "border": "445566" }
+            }
+          },
+          "coach": { "id": 81, "name": "Example Coach", "photo": null },
+          "formation": "4-3-3",
+          "startXI": [ { "player": { "id": 51, "name": "Example Player", "number": 9, "pos": "F", "grid": "4:2" } } ],
+          "substitutes": []
+        }
+      ],
+      "statistics": [
+        {
+          "team": { "id": 11, "name": "North City", "logo": null },
+          "statistics": [ { "type": "Total Shots", "value": 4 } ]
+        }
+      ],
+      "players": [ { "team": { "id": 11 }, "players": [ { "player": { "id": 51 } } ] } ],
+      "future_response_field": "ignored"
+    }
+  ]
+}

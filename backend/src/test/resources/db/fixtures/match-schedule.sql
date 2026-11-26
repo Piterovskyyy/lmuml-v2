@@ -1,0 +1,30 @@
+-- Synthetic test data only; this file is not a Flyway migration.
+INSERT INTO lmuml.competitions (id, code, name, api_football_id) VALUES
+    ('40000000-0000-0000-0000-000000000001', 'demo-cup', 'Puchar demonstracyjny', 9001),
+    ('40000000-0000-0000-0000-000000000002', 'demo-league', 'Liga demonstracyjna', 9002);
+
+INSERT INTO lmuml.seasons (id, competition_id, code, name, start_year) VALUES
+    ('10000000-0000-0000-0000-000000000001', '40000000-0000-0000-0000-000000000001',
+     'demo-2026', 'Sezon demonstracyjny 2026', 2026),
+    ('10000000-0000-0000-0000-000000000002', '40000000-0000-0000-0000-000000000001',
+     'demo-2027', 'Sezon demonstracyjny 2027', 2027),
+    ('10000000-0000-0000-0000-000000000003', '40000000-0000-0000-0000-000000000002',
+     'other-demo-2026', 'Drugi sezon demonstracyjny 2026', 2026);
+
+INSERT INTO lmuml.teams (id, name, api_football_id) VALUES
+    ('20000000-0000-0000-0000-000000000001', 'FC Północ', 201),
+    ('20000000-0000-0000-0000-000000000002', 'KS Południe', 202),
+    ('20000000-0000-0000-0000-000000000003', 'AC Wschód', 203),
+    ('20000000-0000-0000-0000-000000000004', 'Zachód United', 204);
+
+INSERT INTO lmuml.matches
+    (id, season_id, api_football_id, api_round, provider_status, home_team_id, away_team_id, kickoff_at) VALUES
+    ('30000000-0000-0000-0000-000000000001', '10000000-0000-0000-0000-000000000001', 7001, 'League Stage - 1', 'NS',
+     '20000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000002',
+     TIMESTAMPTZ '2026-10-25 02:30:00+02'),
+    ('30000000-0000-0000-0000-000000000002', '10000000-0000-0000-0000-000000000001', 7002, 'Quarter-finals', 'NS',
+     '20000000-0000-0000-0000-000000000003', '20000000-0000-0000-0000-000000000004',
+     TIMESTAMPTZ '2026-10-25 02:30:00+01'),
+    ('30000000-0000-0000-0000-000000000003', '10000000-0000-0000-0000-000000000002', 7003, 'League Stage - 1', 'NS',
+     '20000000-0000-0000-0000-000000000001', '20000000-0000-0000-0000-000000000003',
+     TIMESTAMPTZ '2027-11-03 17:45:00+00');

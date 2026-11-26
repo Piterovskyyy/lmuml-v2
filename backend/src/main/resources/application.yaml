@@ -1,0 +1,87 @@
+spring:
+  application:
+    name: lmuml-backend
+  datasource:
+    hikari:
+      schema: lmuml
+      maximum-pool-size: 5
+      minimum-idle: 1
+      connection-timeout: 3000
+      validation-timeout: 1000
+      # Database outages affect readiness, not the lifetime of the Java process.
+      initialization-fail-timeout: -1
+  flyway:
+    enabled: false
+    default-schema: lmuml
+    schemas: lmuml
+    create-schemas: false
+    clean-disabled: true
+    baseline-on-migrate: false
+    validate-migration-naming: true
+    locations: classpath:db/migration
+  sql:
+    init:
+      mode: never
+  data:
+    redis:
+      connect-timeout: 200ms
+      timeout: 200ms
+      repositories:
+        enabled: false
+  mail:
+    default-encoding: UTF-8
+    properties:
+      "[mail.smtp.connectiontimeout]": 3000
+      "[mail.smtp.timeout]": 3000
+      "[mail.smtp.writetimeout]": 3000
+
+lmuml:
+  catalog-cache:
+    enabled: ${LMUML_CATALOG_CACHE_ENABLED:false}
+  admin:
+    password-hash: ${LMUML_ADMIN_PASSWORD_HASH:}
+  player:
+    enabled: ${LMUML_PLAYER_AUTH_ENABLED:false}
+    password-reset:
+      enabled: ${LMUML_PLAYER_PASSWORD_RESET_ENABLED:false}
+      public-url: ${LMUML_PLAYER_PASSWORD_RESET_PUBLIC_URL:}
+      from: ${LMUML_PLAYER_PASSWORD_RESET_FROM:}
+  api-football:
+    enabled: ${LMUML_API_FOOTBALL_ENABLED:false}
+    api-key: ${LMUML_API_FOOTBALL_API_KEY:}
+
+server:
+  address: 127.0.0.1
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      tracking-modes: cookie
+      cookie:
+        http-only: true
+        same-site: lax
+
+management:
+  health:
+    mail:
+      enabled: false
+    redis:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health
+    jmx:
+      exposure:
+        exclude: "*"
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,db

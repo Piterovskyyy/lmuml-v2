@@ -1,32 +1,16 @@
 # LMuML
 
-Aplikacja do wspólnego typowania wyników meczów piłkarskich, śledzenia punktów i porównywania wyników w rankingu.
+Aplikacja do typowania wyników meczów piłkarskich i porównywania punktów graczy.
 
-Nowa wersja powstaje od podstaw, z naciskiem na wygodę korzystania na telefonie, czytelny interfejs i utrzymywalny kod. Dotychczasowa aplikacja pozostaje punktem odniesienia dla funkcji i zasad.
+Spring Boot udostępnia katalog sezonu, opublikowane rundy, konta graczy, zapis typów i rankingi. PostgreSQL przechowuje dane aplikacji, a Flyway wersjonuje schemat. Importer API-Football zapisuje migawki i aktualizuje katalog w jednej transakcji. Zmiana wersji meczów jest dostępna również przez WebSocket.
 
-## Stan projektu
+## Weryfikacja
 
-Repozytorium zawiera początkową dokumentację. Kod aplikacji oraz konfiguracja uruchamiania będą dodawane w kolejnych etapach.
+Po instalacji narzędzi z `mise.toml` uruchom Docker i wykonaj:
 
-## Kierunek techniczny
+```sh
+mise exec java -- sh backend/mvnw --batch-mode --no-transfer-progress -f backend/pom.xml verify
+mise exec node -- node --test 'scripts/*.test.mjs'
+```
 
-- Frontend: React, TypeScript, Vite, shadcn/ui z Radix, Tailwind CSS i Motion.
-- Backend: Java i Spring Boot, organizacja według funkcji w modularnym monolicie.
-- Baza danych: PostgreSQL.
-- Redis, aktualizacje na żywo i zadania w tle: wdrażane wraz z konkretnymi funkcjami; szczegółowe mechanizmy pozostają do ustalenia.
-
-## Priorytety
-
-- Proste typowanie oraz jednoznaczna informacja o zapisie i terminie.
-- Dostępność, obsługa klawiatury, większy tekst i opcjonalne ustawienia komfortu.
-- Jawne reguły punktacji, poprawne przeliczenia po korekcie wyniku i spójne rankingi.
-- Czytelne granice odpowiedzialności, testy ważnych reguł i powtarzalne uruchamianie.
-- Kontrolowane wdrożenia oraz sprawdzone kopie i odtwarzanie danych.
-
-## Pierwszy etap
-
-Ustalenie reguł typowania i punktacji, a następnie mały przepływ odczytu: PostgreSQL → Spring Boot → mobilny widok meczów. Kolejne funkcje będą dodawane stopniowo.
-
-## Decyzje techniczne
-
-- [ADR 0001: komponenty UI i animacje](docs/decisions/0001-frontend-ui.md).
+Na Windows użyj `.\backend\mvnw.cmd` w miejscu `sh backend/mvnw`. Testy integracyjne uruchamiają odizolowane PostgreSQL i Redis przez Testcontainers.
