@@ -1,0 +1,215 @@
+.home-competition-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.home-preview-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, var(--surface-tint), transparent 75%), var(--card);
+}
+
+.home-preview-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.9rem;
+  color: var(--foreground);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.home-preview-heading svg,
+.home-preview-link svg {
+  flex: none;
+  color: var(--primary);
+}
+
+.home-preview-season {
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.home-preview-message {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.home-preview-empty,
+.home-preview-message {
+  color: var(--muted-foreground);
+}
+
+.home-fixture-list {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.home-fixture-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  gap: 0.65rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--surface-tint);
+  text-align: start;
+  cursor: pointer;
+}
+
+.home-fixture-row:hover {
+  border-color: var(--border-strong);
+  background: color-mix(in srgb, var(--primary) 6%, var(--card));
+}
+
+.home-fixture-teams {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+}
+
+.home-preview-team {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.home-preview-team .team-crest {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.home-preview-team .team-crest svg {
+  width: 100%;
+  height: 100%;
+}
+
+.home-fixture-time {
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.home-fixture-time strong {
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.home-fixture-row > svg {
+  color: var(--muted-foreground);
+}
+
+.home-standings {
+  width: 100%;
+  margin-bottom: 0.45rem;
+  border-collapse: collapse;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-standings th,
+.home-standings td {
+  padding: 0.5rem 0.48rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8125rem;
+}
+
+.home-standings thead,
+.home-standings td:first-child {
+  color: var(--muted-foreground);
+}
+
+.home-standings th:nth-child(2) {
+  width: 100%;
+  text-align: start;
+}
+
+.home-standings td:last-child {
+  font-weight: 700;
+}
+
+.home-bracket-stage {
+  margin-bottom: 0.6rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.home-bracket-list {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.home-bracket-list li {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--surface-tint);
+}
+
+.home-bracket-team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.home-bracket-team + .home-bracket-team {
+  margin-top: 0.25rem;
+}
+
+.home-bracket-penalties {
+  margin-top: 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.home-preview-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 2.75rem;
+  gap: 0.55rem;
+  margin-top: auto;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.home-preview-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 690px) {
+  .home-competition-preview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

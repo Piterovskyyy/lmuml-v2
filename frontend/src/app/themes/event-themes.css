@@ -1,0 +1,116 @@
+/* Champions League is active; Euro/World Cup palettes are retained for future events. */
+:root,
+:root[data-event-theme="champions-league"] {
+  --background: #000040;
+  --foreground: #ffffff;
+  --card: #0a0a61;
+  --popover: #151573;
+  --primary: #00eeff;
+  --primary-foreground: #00004b;
+  --secondary: #151573;
+  --muted-foreground: #bdbdd4;
+  --accent: #17177a;
+  --surface-start: #08084f;
+  --surface-locked: #050547;
+  --effect-start: #00d4ff;
+  --effect-middle: #3974ff;
+  --effect-end: #973fff;
+  --feature-start: #112772;
+  --feature-glow: #7632e4;
+  --glass-start: #102f87;
+  --glass-middle: #151573;
+  --glass-end: #0a0a61;
+  --glass-glow: #8c38f0;
+  --glass-border: #8c81ff;
+  --glass-nav-start: #153174;
+  --glass-nav-middle: #242069;
+  --glass-nav-end: #151052;
+  --glass-nav-veil-start: #233c8a;
+  --glass-nav-border: #b7bbff;
+  --glass-active-start: #7099fb;
+  --glass-active-end: #8e82f4;
+  --sheen-middle: #4385ff;
+  --sheen-end: #b369ff;
+  --shadow-color: #000020;
+}
+
+:root[data-event-theme="euro-2028"] {
+  --background: #10052d;
+  --foreground: #fffaff;
+  --card: #25104f;
+  --popover: #351663;
+  --primary: #ff70aa;
+  --primary-foreground: #1b062b;
+  --secondary: #2d1459;
+  --muted-foreground: #d5c9e7;
+  --accent: #431c72;
+  --surface-start: #1b0b3f;
+  --surface-locked: #170933;
+  --effect-start: #009bff;
+  --effect-middle: #fc0064;
+  --effect-end: #00c878;
+  --feature-start: #351275;
+  --feature-glow: #fc0064;
+  --glass-start: #471b87;
+  --glass-middle: #351360;
+  --glass-end: #25104f;
+  --glass-glow: #fc0064;
+  --glass-border: #cf72c5;
+  --glass-nav-start: #361464;
+  --glass-nav-middle: #2c154e;
+  --glass-nav-end: #210f3a;
+  --glass-nav-veil-start: #4b207c;
+  --glass-nav-border: #d5a6ff;
+  --glass-active-start: #dc89d6;
+  --glass-active-end: #8c7cff;
+  --sheen-middle: #009bff;
+  --sheen-end: #00c878;
+  --shadow-color: #080318;
+}
+
+:root[data-event-theme="world-cup-2030"] {
+  --background: #23080f;
+  --foreground: #fff8f2;
+  --card: #431320;
+  --popover: #591d2b;
+  --primary: #f8d818;
+  --primary-foreground: #2b0a10;
+  --secondary: #4d1828;
+  --muted-foreground: #e0c9cc;
+  --accent: #622236;
+  --surface-start: #340e19;
+  --surface-locked: #2b0a14;
+  --effect-start: #ff4058;
+  --effect-middle: #f8d818;
+  --effect-end: #10a058;
+  --feature-start: #6f1d33;
+  --feature-glow: #d82838;
+  --glass-start: #7a2535;
+  --glass-middle: #511b29;
+  --glass-end: #39101d;
+  --glass-glow: #d82838;
+  --glass-border: #c65a6a;
+  --glass-nav-start: #5e1826;
+  --glass-nav-middle: #451421;
+  --glass-nav-end: #310e18;
+  --glass-nav-veil-start: #7b2536;
+  --glass-nav-border: #d8a66d;
+  --glass-active-start: #f8d818;
+  --glass-active-end: #c95068;
+  --sheen-middle: #f8d818;
+  --sheen-end: #10a058;
+  --shadow-color: #120308;
+}
+
+:root {
+  --border: color-mix(in srgb, var(--foreground) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--foreground) 19%, transparent);
+  --surface-tint: color-mix(in srgb, var(--foreground) 2%, transparent);
+  --text-faint: color-mix(in srgb, var(--muted-foreground) 70%, var(--background));
+  --header-surface: color-mix(in srgb, var(--background) 95%, transparent);
+  --destructive: #ff9fae;
+  --success: #5af7dc;
+  --success-soft: #a5e8d4;
+  --warning: #ffe093;
+  --light-edge: linear-gradient(100deg, var(--primary), var(--sheen-middle) 55%, var(--sheen-end));
+}

@@ -1,0 +1,294 @@
+.players-predictions-page {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.players-predictions-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.players-predictions-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.875rem;
+  background: var(--surface-tint);
+  color: var(--primary);
+}
+
+.players-predictions-header h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+
+.players-predictions-header p,
+.players-predictions-rule,
+.shared-player-summary,
+.shared-match-heading,
+.shared-match-note {
+  color: var(--muted-foreground);
+}
+
+.players-predictions-header p {
+  margin-top: 0.3rem;
+}
+
+.players-predictions-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.players-predictions-controls > div,
+.players-predictions-search {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  width: min(27rem, 100%);
+}
+
+.players-predictions-controls > div {
+  flex: 1 1 11rem;
+}
+
+.players-predictions-controls label,
+.players-predictions-search label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.players-predictions-controls select {
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.625rem;
+  background: var(--card);
+  color: var(--foreground);
+}
+
+.players-predictions-search > div {
+  position: relative;
+}
+
+.players-predictions-search svg {
+  position: absolute;
+  inset-inline-start: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.players-predictions-search input {
+  padding-inline-start: 2.5rem;
+}
+
+.players-predictions-rule {
+  margin-block: 0.75rem 1.2rem;
+  font-size: 0.875rem;
+}
+
+.shared-predictions-message {
+  padding: 1rem;
+  margin-block: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  background: var(--card);
+}
+
+.shared-predictions-message .ui-button {
+  margin-top: 0.75rem;
+}
+
+.shared-players-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.shared-player-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, var(--surface-tint), transparent 16rem), var(--card);
+}
+
+.shared-player-toggle {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.65rem, 2vw, 1rem);
+  width: 100%;
+  min-height: 4.75rem;
+  padding: clamp(0.85rem, 2vw, 1.25rem);
+  text-align: left;
+  cursor: pointer;
+}
+
+.shared-player-toggle > span:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.shared-player-toggle:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -3px;
+}
+
+.shared-player-name {
+  font-size: 1.05rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.shared-player-self {
+  margin-inline-start: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+.shared-player-summary {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.shared-player-points {
+  flex: none;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.shared-player-points[data-negative="true"],
+.shared-match-scores dd[data-negative="true"] {
+  color: var(--destructive);
+}
+
+.shared-player-chevron {
+  flex: none;
+  color: var(--muted-foreground);
+  transition: transform 180ms ease;
+}
+
+.shared-player-toggle[aria-expanded="true"] .shared-player-chevron {
+  transform: rotate(180deg);
+}
+
+.shared-player-details {
+  padding: clamp(0.85rem, 2vw, 1.25rem);
+  padding-top: 0;
+}
+
+.shared-predictions-day + .shared-predictions-day {
+  margin-top: 1.25rem;
+}
+
+.shared-predictions-day > h3 {
+  margin-bottom: 0.7rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 550;
+  text-transform: capitalize;
+}
+
+.shared-predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.shared-prediction-match {
+  min-width: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--background);
+}
+
+.shared-match-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.shared-match-heading > span {
+  min-width: 0;
+}
+
+.shared-match-heading .ui-button {
+  flex: none;
+}
+
+.shared-match-teams {
+  display: grid;
+  gap: 0.5rem;
+  margin-block: 0.5rem 0.85rem;
+}
+
+.shared-match-teams > div {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  font-weight: 550;
+}
+
+.shared-match-teams span:last-child {
+  overflow-wrap: anywhere;
+}
+
+.shared-match-teams .team-crest {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.shared-match-scores {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.shared-match-scores dt {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.shared-match-scores dd {
+  margin-top: 0.15rem;
+  font-size: 1rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.shared-match-note {
+  margin-top: 0.65rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 46rem) {
+  .shared-predictions-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shared-player-chevron {
+    transition: none;
+  }
+}

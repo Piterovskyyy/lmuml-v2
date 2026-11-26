@@ -1,0 +1,128 @@
+.game-statistics-detail {
+  margin-top: clamp(1rem, 3vw, 1.4rem);
+}
+
+.game-detail-empty {
+  margin-top: 0.85rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.game-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.game-detail-header h3 {
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.game-detail-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.game-detail-switch button {
+  min-height: 2.75rem;
+  border: 1px solid transparent;
+}
+
+.game-detail-switch button[aria-pressed="true"] {
+  border: 1px solid color-mix(in srgb, var(--primary) 37%, var(--border));
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, var(--card));
+}
+
+.game-detail-chart {
+  --game-column-round: 6.25rem;
+  --game-column-value: 5rem;
+  --game-column-gap: 0.8rem;
+  min-width: 0;
+  padding: clamp(0.65rem, 2vw, 1.15rem);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--card) 72%, var(--background));
+}
+
+.game-detail-scale {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 calc(var(--game-column-value) + var(--game-column-gap)) 0.2rem
+    calc(var(--game-column-round) + var(--game-column-gap));
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.game-detail-bars {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.game-detail-bars li {
+  display: grid;
+  grid-template-columns: var(--game-column-round) minmax(0, 1fr) var(--game-column-value);
+  align-items: center;
+  column-gap: var(--game-column-gap);
+  min-height: 2.2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.game-detail-round,
+.game-detail-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.game-detail-value {
+  justify-self: end;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.game-detail-track {
+  height: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-tint);
+}
+
+.game-detail-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--feature-glow), var(--primary));
+  transition: width 180ms ease-out;
+}
+
+.game-detail-highlight {
+  margin-top: 0.8rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.game-detail-highlight strong {
+  color: var(--foreground);
+}
+
+@media (max-width: 480px) {
+  .game-detail-chart {
+    --game-column-round: 4.5rem;
+    --game-column-value: 3.6rem;
+    --game-column-gap: 0.4rem;
+  }
+
+  .game-detail-round,
+  .game-detail-value {
+    font-size: 0.8125rem;
+  }
+}
