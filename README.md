@@ -1,18 +1,135 @@
 # LMuML
 
-A full-stack app for predicting football scores with friends. Players can submit their picks for a whole round, track their points, and compare results in the standings. The backend enforces the deadline separately for each match.
+A full-stack football prediction app with round picks, live results, a match centre, and player rankings.
 
 ## See it in action
 
-[![LMuML home screen with the active round and player standings](docs/demo/gallery/desktop/player-home.webp)](docs/demo/gallery/desktop/player-home.webp)
+<table>
+  <thead>
+    <tr><th>Round predictions</th><th>Match centre</th><th>Player rankings</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#matchday-and-predictions"><img src="docs/demo/gallery/desktop/player-predictions.webp" width="245" alt="Saved predictions in the desktop round editor"></a></td>
+      <td><a href="#match-centre"><img src="docs/demo/gallery/desktop/fixtures-match-overview.webp" width="300" alt="Open match dialog showing the 2:1 result and match timeline"></a></td>
+      <td><a href="#rankings-and-statistics"><img src="docs/demo/gallery/desktop/player-rankings.webp" width="245" alt="Player standings and points in the desktop rankings"></a></td>
+    </tr>
+  </tbody>
+</table>
 
-[Watch a prediction being saved and the standings opened](docs/demo/przebieg-gracza.webp).
+[Match centre walkthrough](docs/demo/match-centre.webp) · [Player walkthrough](docs/demo/przebieg-gracza.webp) · [Full gallery](#application-gallery) · [Run the demo](#run-the-demo)
+
+## Match centre
+
+The desktop and mobile captures follow the same fictional fixture. Select any screenshot to see it at full size.
+
+[Results](#finished-results) · [Match details](#match-details) · [Timeline](#match-timeline) · [Team statistics](#team-statistics) · [Player statistics](#player-statistics) · [Lineups](#lineups-and-formation) · [Squads and bench](#squads-and-bench)
+
+### Finished results
+
+The completed-match filter shows final scores and keeps each result one click away from its details.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-results.webp"><img src="docs/demo/gallery/desktop/fixtures-results.webp" width="510" alt="Finished results on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-results.webp"><img src="docs/demo/gallery/mobile/fixtures-results.webp" width="200" alt="Finished results on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Match details
+
+The match dialog shows both clubs, the status, and the half-time and regulation-time score.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-match-overview.webp"><img src="docs/demo/gallery/desktop/fixtures-match-overview.webp" width="510" alt="Match details on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-match-overview.webp"><img src="docs/demo/gallery/mobile/fixtures-match-overview.webp" width="200" alt="Match details on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Match timeline
+
+Goals, cards, assists, and substitutions in match order.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-match-timeline.webp"><img src="docs/demo/gallery/desktop/fixtures-match-timeline.webp" width="510" alt="Match timeline on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-match-timeline.webp"><img src="docs/demo/gallery/mobile/fixtures-match-timeline.webp" width="200" alt="Match timeline on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Team statistics
+
+Compare possession, shots, corners, and other team measures.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-team-statistics.webp"><img src="docs/demo/gallery/desktop/fixtures-team-statistics.webp" width="510" alt="Team statistics on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-team-statistics.webp"><img src="docs/demo/gallery/mobile/fixtures-team-statistics.webp" width="200" alt="Team statistics on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Player statistics
+
+Switch teams and open a player for their rating and individual match numbers.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-player-statistics.webp"><img src="docs/demo/gallery/desktop/fixtures-player-statistics.webp" width="510" alt="Player statistics on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-player-statistics.webp"><img src="docs/demo/gallery/mobile/fixtures-player-statistics.webp" width="200" alt="Player statistics on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Lineups and formation
+
+Both starting elevens share one pitch. Player markers show ratings and match events.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-lineups.webp"><img src="docs/demo/gallery/desktop/fixtures-lineups.webp" width="510" alt="Lineups and formation on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-lineups.webp"><img src="docs/demo/gallery/mobile/fixtures-lineups.webp" width="200" alt="Lineups and formation on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
+
+### Squads and bench
+
+Scroll below the pitch to read both starting squads and expand the bench.
+
+<table>
+  <thead><tr><th>Desktop</th><th>Mobile</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/demo/gallery/desktop/fixtures-lineup-squads.webp"><img src="docs/demo/gallery/desktop/fixtures-lineup-squads.webp" width="510" alt="Starting squad and bench lists on desktop"></a></td>
+      <td><a href="docs/demo/gallery/mobile/fixtures-lineup-squads.webp"><img src="docs/demo/gallery/mobile/fixtures-lineup-squads.webp" width="200" alt="Starting squad and bench lists on mobile"></a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Application gallery
 
-Compare 31 screens and interaction states in desktop and mobile layouts. Expand each workflow and select any preview to see the full image. The captures use fictional clubs, players, and results. The interface is in Polish.
+[![LMuML home screen with the active round and player standings](docs/demo/gallery/desktop/player-home.webp)](docs/demo/gallery/desktop/player-home.webp)
 
-[Matchday and predictions](#matchday-and-predictions) · [Fixtures and match centre](#fixtures-and-match-centre) · [Rankings and statistics](#rankings-and-statistics) · [Account and accessibility](#account-and-accessibility) · [Administration](#administration)
+The README contains 33 desktop and mobile pairs. Expand a workflow to see the remaining screens. All captures use fictional clubs, players, and results. The interface is in Polish.
+
+[Matchday and predictions](#matchday-and-predictions) · [Fixtures and standings](#fixtures-and-standings) · [Rankings and statistics](#rankings-and-statistics) · [Account and accessibility](#account-and-accessibility) · [Administration](#administration)
 
 ### Matchday and predictions
 
@@ -46,12 +163,12 @@ Open the active round from the home screen, enter scores, and see the save confi
 
 </details>
 
-### Fixtures and match centre
+### Fixtures and standings
 
-Switch between league and knockout views, then open a match for the score, timeline, lineups, and statistics.
+Browse the schedule, see qualification cutoffs in the league table, or switch to the knockout bracket.
 
 <details>
-<summary>Schedule, table, bracket, and match details</summary>
+<summary>Season schedule, league table, and knockout bracket</summary>
 
 <table>
   <thead>
@@ -72,31 +189,6 @@ Switch between league and knockout views, then open a match for the score, timel
     <tr>
       <td><a href="docs/demo/gallery/desktop/fixtures-knockout-bracket.webp"><img src="docs/demo/gallery/desktop/fixtures-knockout-bracket.webp" width="510" alt="Knockout bracket on desktop"></a></td>
       <td><a href="docs/demo/gallery/mobile/fixtures-knockout-bracket.webp"><img src="docs/demo/gallery/mobile/fixtures-knockout-bracket.webp" width="200" alt="Knockout bracket on mobile"></a></td>
-    </tr>
-    <tr><td colspan="2"><strong>Match overview dialog</strong> · Score and match status in the details dialog.</td></tr>
-    <tr>
-      <td><a href="docs/demo/gallery/desktop/fixtures-match-overview.webp"><img src="docs/demo/gallery/desktop/fixtures-match-overview.webp" width="510" alt="Match overview dialog on desktop"></a></td>
-      <td><a href="docs/demo/gallery/mobile/fixtures-match-overview.webp"><img src="docs/demo/gallery/mobile/fixtures-match-overview.webp" width="200" alt="Match overview dialog on mobile"></a></td>
-    </tr>
-    <tr><td colspan="2"><strong>Match timeline</strong> · Goals, cards, and substitutions in match order.</td></tr>
-    <tr>
-      <td><a href="docs/demo/gallery/desktop/fixtures-match-timeline.webp"><img src="docs/demo/gallery/desktop/fixtures-match-timeline.webp" width="510" alt="Match timeline on desktop"></a></td>
-      <td><a href="docs/demo/gallery/mobile/fixtures-match-timeline.webp"><img src="docs/demo/gallery/mobile/fixtures-match-timeline.webp" width="200" alt="Match timeline on mobile"></a></td>
-    </tr>
-    <tr><td colspan="2"><strong>Team statistics</strong> · Side-by-side team measures with the result still visible.</td></tr>
-    <tr>
-      <td><a href="docs/demo/gallery/desktop/fixtures-team-statistics.webp"><img src="docs/demo/gallery/desktop/fixtures-team-statistics.webp" width="510" alt="Team statistics on desktop"></a></td>
-      <td><a href="docs/demo/gallery/mobile/fixtures-team-statistics.webp"><img src="docs/demo/gallery/mobile/fixtures-team-statistics.webp" width="200" alt="Team statistics on mobile"></a></td>
-    </tr>
-    <tr><td colspan="2"><strong>Player statistics</strong> · Individual performances within the match details.</td></tr>
-    <tr>
-      <td><a href="docs/demo/gallery/desktop/fixtures-player-statistics.webp"><img src="docs/demo/gallery/desktop/fixtures-player-statistics.webp" width="510" alt="Player statistics on desktop"></a></td>
-      <td><a href="docs/demo/gallery/mobile/fixtures-player-statistics.webp"><img src="docs/demo/gallery/mobile/fixtures-player-statistics.webp" width="200" alt="Player statistics on mobile"></a></td>
-    </tr>
-    <tr><td colspan="2"><strong>Lineups and formation</strong> · Both starting elevens on a shared pitch, with player ratings and events.</td></tr>
-    <tr>
-      <td><a href="docs/demo/gallery/desktop/fixtures-lineups.webp"><img src="docs/demo/gallery/desktop/fixtures-lineups.webp" width="510" alt="Lineups and formation on desktop"></a></td>
-      <td><a href="docs/demo/gallery/mobile/fixtures-lineups.webp"><img src="docs/demo/gallery/mobile/fixtures-lineups.webp" width="200" alt="Lineups and formation on mobile"></a></td>
     </tr>
   </tbody>
 </table>
