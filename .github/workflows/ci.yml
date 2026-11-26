@@ -14,6 +14,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  frontend:
+    name: Frontend and Node scripts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@924e7c586e33d7d4bae9c14e26c5d22e2beb6e78 # v5.3.0
+        with:
+          version: '2026.11.14'
+          install_args: node
+          cache: false
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: mise exec node -- npm ci
+      - name: Check frontend formatting
+        working-directory: frontend
+        run: mise exec node -- npm run format:check
+      - name: Test frontend
+        working-directory: frontend
+        run: mise exec node -- npm test
+      - name: Build frontend
+        working-directory: frontend
+        run: mise exec node -- npm run build
+      - name: Test Node scripts
+        run: mise exec node -- node --test 'scripts/*.test.mjs'
+
   backend:
     name: Backend unit and integration tests
     runs-on: ubuntu-24.04

@@ -1,0 +1,266 @@
+.competition-card-freshness {
+  margin-top: 0.3rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.competition-card-freshness time {
+  color: var(--foreground);
+  font-weight: 550;
+}
+
+.competition-views {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.competition-views nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.competition-views a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.competition-views a[aria-current],
+.competition-views a:hover {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 9%, transparent);
+}
+
+.competition-panel {
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--card);
+  padding: clamp(0.75rem, 2vw, 1.4rem);
+}
+
+.competition-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.competition-panel-heading h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+}
+
+.competition-panel-heading p,
+.competition-panel-note {
+  margin-top: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.competition-panel-note {
+  margin-bottom: 0.75rem;
+}
+
+.league-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+.league-table th,
+.league-table td {
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.league-table thead {
+  color: var(--muted-foreground);
+}
+
+.league-table th:nth-child(2) {
+  text-align: left;
+}
+
+.league-table-team {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+.league-table-team .team-crest,
+.knockout-team .team-crest {
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.league-table-difference {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.league-table-points {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.competition-panel .league-table-toggle,
+.knockout-round-picker {
+  display: none;
+}
+
+.knockout-scroll {
+  overflow-x: auto;
+}
+
+.knockout-board {
+  --round-heading-height: 2.8rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--round-count), minmax(0, 1fr));
+  min-width: calc(var(--round-count) * 12rem);
+}
+
+.knockout-connections {
+  position: absolute;
+  inset: var(--round-heading-height) 0 0;
+  width: 100%;
+  height: calc(100% - var(--round-heading-height));
+  fill: none;
+  stroke: color-mix(in srgb, var(--primary) 45%, transparent);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.knockout-round {
+  position: relative;
+  padding-inline: 0.7rem;
+}
+
+.knockout-round h3 {
+  display: flex;
+  align-items: center;
+  height: var(--round-heading-height);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.knockout-round ol {
+  display: grid;
+  grid-template-rows: repeat(var(--tie-count), minmax(0, 1fr));
+  align-items: center;
+  height: calc(var(--bracket-rows) * 10.5rem);
+}
+
+.knockout-tie {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.55rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.55rem;
+  background: var(--background);
+}
+
+.knockout-team {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.knockout-team[data-winner="true"] {
+  color: var(--primary);
+  font-weight: 650;
+}
+
+.knockout-tie-note {
+  color: var(--muted-foreground);
+  font-size: 0.6875rem;
+  margin-top: 0.12rem;
+}
+
+@media (max-width: 1000px) {
+  .knockout-round-picker {
+    display: block;
+  }
+
+  .knockout-round-picker select {
+    min-height: 44px;
+    width: 100%;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 0.55rem;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  .knockout-board {
+    display: block;
+    min-width: 0;
+  }
+
+  .knockout-connections,
+  .knockout-round[data-selected="false"] {
+    display: none;
+  }
+
+  .knockout-round {
+    padding: 0;
+  }
+
+  .knockout-round ol {
+    grid-template-rows: none;
+    height: auto;
+    gap: 0.6rem;
+  }
+
+  .knockout-team {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .competition-panel .league-table-toggle {
+    display: inline-flex;
+  }
+
+  .league-table .league-table-wide,
+  .league-table[data-show-balance="false"] .league-table-balance {
+    display: none;
+  }
+
+  .league-table th,
+  .league-table td {
+    padding-inline: 0.28rem;
+  }
+
+  .competition-views a {
+    padding-inline: 0.6rem;
+    font-size: 0.8125rem;
+  }
+
+  .knockout-round-picker {
+    width: 100%;
+  }
+}

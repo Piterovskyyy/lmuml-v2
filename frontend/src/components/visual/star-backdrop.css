@@ -1,0 +1,121 @@
+.star-backdrop {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.star-backdrop__aura {
+  position: absolute;
+  inset: -8%;
+  background:
+    radial-gradient(
+      ellipse at 78% 60%,
+      color-mix(in srgb, var(--effect-end) 15%, transparent),
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse at 40% 33%,
+      color-mix(in srgb, var(--effect-middle) 14%, transparent),
+      transparent 65%
+    );
+  animation: star-light-drift 16s ease-in-out infinite alternate;
+}
+
+.star-backdrop > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke-linejoin: round;
+}
+
+.star-backdrop__stars {
+  fill: color-mix(in srgb, var(--effect-middle) 13%, var(--background));
+}
+
+.star-backdrop__hexagons {
+  fill: color-mix(in srgb, var(--effect-middle) 5%, var(--background));
+}
+
+.star-backdrop__rim {
+  opacity: 0.72;
+  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--effect-middle) 65%, transparent));
+}
+
+.star-backdrop__rim-highlight {
+  opacity: 0.47;
+  filter: drop-shadow(0 0 8px var(--effect-start));
+}
+
+.star-backdrop__floor {
+  opacity: 0.7;
+}
+
+.star-backdrop__trails {
+  opacity: 0.63;
+  stroke-linecap: round;
+}
+
+.star-backdrop__trails path {
+  stroke-dasharray: 0.08 0.92;
+  animation: star-trail-flow var(--trail-duration) linear var(--trail-delay) infinite;
+}
+
+@keyframes star-trail-flow {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes star-light-drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+}
+
+.star-backdrop[data-paused="true"] .star-backdrop__aura,
+.star-backdrop[data-paused="true"] .star-backdrop__trails path {
+  animation-play-state: paused;
+}
+
+.star-backdrop[data-reduced-motion="true"] .star-backdrop__aura {
+  animation: none;
+}
+
+.star-backdrop[data-reduced-motion="true"] .star-backdrop__trails {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .star-backdrop > svg {
+    opacity: 0.66;
+  }
+}
+
+@media (max-aspect-ratio: 3/4) {
+  .star-backdrop > svg {
+    top: 44%;
+    bottom: auto;
+    height: min(100%, 155vw);
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-backdrop__aura {
+    animation: none;
+  }
+
+  .star-backdrop__trails {
+    display: none;
+  }
+}

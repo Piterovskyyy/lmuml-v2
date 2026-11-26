@@ -1,0 +1,201 @@
+.team-progress-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.7rem 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.team-progress-header > h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0;
+}
+
+.team-progress-header > h2 svg,
+.team-progress-link svg {
+  flex: none;
+  width: 1.3rem;
+  color: var(--primary);
+}
+
+.team-progress-picker {
+  display: grid;
+  flex: 0 1 15rem;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.team-progress-picker label,
+.team-progress-note {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.team-progress-picker select {
+  min-height: 2.75rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.55rem;
+  color: var(--foreground);
+  background: var(--popover);
+}
+
+.team-progress-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.team-progress-figure {
+  margin-top: 0.7rem;
+  padding: clamp(0.6rem, 2vw, 1.1rem);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background:
+    radial-gradient(
+      ellipse at top right,
+      color-mix(in srgb, var(--feature-glow) 16%, transparent),
+      transparent 55%
+    ),
+    color-mix(in srgb, var(--card) 72%, var(--background));
+}
+
+.team-progress-club {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.team-progress-club .team-crest {
+  flex: none;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.team-progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.team-progress-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.team-progress-legend li::before {
+  width: 1.15rem;
+  border-top: 2px solid var(--primary);
+  content: "";
+}
+
+.team-progress-legend li[data-conceded]::before {
+  border-top: 2px dashed var(--warning);
+}
+
+.team-progress-canvas {
+  position: relative;
+  min-width: 0;
+  height: clamp(10.5rem, 27vw, 17rem);
+}
+
+.team-progress-canvas canvas {
+  touch-action: pan-y;
+}
+
+.team-progress-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.team-progress-values:is([data-mode="goals"], [data-mode="placement"]) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr));
+}
+
+.team-progress-values li {
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-progress-values strong {
+  color: var(--primary);
+  font-size: 0.875rem;
+}
+
+.team-progress-values strong[data-missing="true"] {
+  color: var(--muted-foreground);
+}
+
+.team-progress-goal-values {
+  display: grid;
+  gap: 0.1rem;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.team-progress-goal-values > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.team-progress-goal-values dd {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.team-progress-goal-values [data-conceded] dd {
+  color: var(--warning);
+}
+
+.team-progress-note {
+  margin-top: 0.7rem;
+}
+
+.team-progress-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.team-progress-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  .team-progress-picker {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .team-progress-modes > button {
+    flex: 1 1 auto;
+  }
+}

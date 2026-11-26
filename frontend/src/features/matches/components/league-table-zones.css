@@ -1,0 +1,89 @@
+[data-qualification-zone="direct"] {
+  --qualification-color: var(--success);
+}
+
+[data-qualification-zone="play-off"] {
+  --qualification-color: var(--warning);
+}
+
+[data-qualification-zone="eliminated"] {
+  --qualification-color: var(--destructive);
+}
+
+.league-zone-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.league-zone-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--qualification-color) 22%, transparent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--qualification-color) 7%, transparent);
+  font-size: 0.8125rem;
+}
+
+.league-zone-legend strong {
+  color: var(--qualification-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.league-zone-projection {
+  margin: -0.25rem 0 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+}
+
+.league-table tr[data-zone-start="true"] > * {
+  border-top: 2px solid color-mix(in srgb, var(--qualification-color) 48%, transparent);
+}
+
+.league-zone-position > span:first-child {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.85rem;
+  min-height: 1.65rem;
+  border-radius: 0.35rem;
+  font-weight: 650;
+}
+
+[data-qualification-zone] .league-zone-position > span:first-child {
+  color: var(--qualification-color);
+  background: color-mix(in srgb, var(--qualification-color) 11%, transparent);
+}
+
+html[data-comfort="true"] .league-zone-legend li,
+html[data-comfort="true"] .league-zone-projection {
+  font-size: 0.95rem;
+}
+.league-team-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.16rem;
+  margin-top: 0.24rem;
+}
+
+.league-team-form > [data-result] {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.05rem;
+  min-height: 1.05rem;
+  border: 1px solid currentColor;
+  border-radius: 0.24rem;
+  font-size: 0.65rem;
+  line-height: 1;
+  color: var(--muted-foreground);
+}
+
+.league-team-form > [data-result="W"] {
+  color: var(--primary);
+}
+
+.league-team-form > [data-result="L"] {
+  color: var(--destructive);
+}
