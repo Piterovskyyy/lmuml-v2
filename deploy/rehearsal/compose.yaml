@@ -1,0 +1,113 @@
+name: lmuml-v2-rehearsal
+
+x-postgres: &postgres-image postgres:18.6-trixie@sha256:edb0c08dc33befd0262ab3b5cf1c4f3f8cfd8b09e88c05b45adee29d6761ddb6
+x-backend: &backend-image lmuml-backend:rehearsal
+
+services:
+  postgres:
+    image: *postgres-image
+    environment:
+      POSTGRES_DB: lmuml_test
+      POSTGRES_USER: rehearsal_admin
+      POSTGRES_PASSWORD: rehearsal-only-admin-password
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ../../backend/src/test/resources/db/test-app-role.sql:/docker-entrypoint-initdb.d/01-roles.sql:ro
+    networks: [data]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "rehearsal_admin", "-d", "lmuml_test"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+
+  redis:
+    image: redis:8.10.3-alpine@sha256:7958cfbb9d152f87dadfbc89f1b0b15938f0b81ff8982feb327476f4911935c3
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "64mb", "--maxmemory-policy", "allkeys-lru"]
+    tmpfs: [/data]
+    networks: [data]
+
+  migrate:
+    image: *backend-image
+    pull_policy: never
+    command: ["--spring.profiles.active=migration"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lmuml_test
+      SPRING_DATASOURCE_USERNAME: lmuml_migrator_test
+      SPRING_DATASOURCE_PASSWORD: test-only-migrator-password
+      LMUML_RUNTIME_ROLE: lmuml_app_test
+      LMUML_IMPORT_ROLE: lmuml_importer_test
+    networks: [data]
+
+  seed:
+    image: *postgres-image
+    entrypoint: ["psql", "--no-psqlrc", "--set", "ON_ERROR_STOP=1", "--file", "/seed/seed.sql"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    environment:
+      PGHOST: postgres
+      PGDATABASE: lmuml_test
+      PGUSER: lmuml_migrator_test
+      PGPASSWORD: test-only-migrator-password
+    volumes:
+      - ./seed.sql:/seed/seed.sql:ro
+      - ../../backend/src/test/resources/db/fixtures/match-schedule.sql:/seed/match-schedule.sql:ro
+    networks: [data]
+
+  backend:
+    image: *backend-image
+    pull_policy: never
+    build:
+      context: ../../backend
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lmuml_test
+      SPRING_DATASOURCE_USERNAME: lmuml_app_test
+      SPRING_DATASOURCE_PASSWORD: test-only-app-password
+      SPRING_DATA_REDIS_HOST: redis
+      LMUML_CATALOG_CACHE_ENABLED: "true"
+      LMUML_PLAYER_AUTH_ENABLED: "true"
+      SERVER_FORWARD_HEADERS_STRATEGY: framework
+      SERVER_SERVLET_SESSION_COOKIE_SECURE: "true"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "--max-time", "2", "http://127.0.0.1:8080/actuator/health/readiness"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    networks: [edge, data]
+
+  web:
+    image: lmuml-web:rehearsal
+    pull_policy: never
+    build:
+      context: ../../frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8443:443"
+    volumes:
+      - caddy_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "--max-time", "2",
+             "--cacert", "/data/caddy/pki/authorities/local/root.crt", "https://localhost/api/v1/seasons/active"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    networks: [edge]
+
+networks:
+  edge:
+  data:
+    internal: true
+
+volumes:
+  postgres_data:
+  caddy_data:
