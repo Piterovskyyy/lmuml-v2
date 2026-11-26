@@ -1,21 +1,15 @@
-# Dokumentacja LMuML
+# LMuML documentation
 
-Dokumentacja opisuje działające przepływy LMuML, decyzje architektoniczne oraz przygotowanie wydania.
+Start with the [demo](demo/README.md), the [architecture guide](architecture.md), or the [deployment rehearsal](operations/rehearsal.md). The detailed implementation notes linked below are in Polish.
 
-| Potrzeba | Dokument |
+| Topic | Document |
 | --- | --- |
-| Zobaczyć najważniejsze ekrany i zapis typu | [Demonstracja](demo/README.md) |
-| Prześledzić żądanie przez React, Spring i PostgreSQL | [Architektura](architecture.md) |
-| Sprawdzić, które wybory zostały przyjęte | [Rejestr decyzji](decisions/README.md) |
-| Przygotować narzędzia, bazę i uruchomić diagnozę | [Środowisko lokalne](development/local-environment.md) |
-| Sprawdzić odpowiedź i błędy pierwszego endpointu | [Odczyt meczów sezonu](development/season-matches-api.md) |
-| Uruchomić podgląd typowania i katalog meczów, poznać strukturę React | [Frontend](development/frontend.md) |
-| Poznać aktywną paletę Ligi Mistrzów i zachowane warianty Euro/Mundial | [Motywy wydarzeń](development/event-themes.md) |
-| Przygotować publikację, kopie i wycofanie wdrożenia | [Plan wdrożenia](operations/deployment-plan.md) |
-| Uruchomić lokalną próbę obrazów, HTTPS i WebSocket | [Lokalne próbne wdrożenie](operations/rehearsal.md) |
-| Sprawdzić kolory, typografię i ograniczenia wykorzystania materiałów UEFA | [Badanie wizualne](research/2026-10-29-uefa-visual-research.md) |
-| Poznać możliwości API-Football, typy i luki modelu | [Analiza danych dostawcy](research/2026-10-31-api-football.md) |
-| Poznać przyjęty model katalogu i granice jego odpowiedzialności | [Model danych piłkarskich](planning/football-data-model.md) |
-| Sprawdzić, które pola zachowujemy w kolumnach i źródłowym JSONB | [Zakres danych dostawcy](planning/provider-data-retention.md) |
-
-Starsze materiały opisują [reguły poprzedniej wersji](domain/legacy-behavior.md) i [zakres pierwszego etapu](planning/first-slice.md).
+| Development environment and database roles | [Local environment](development/local-environment.md) |
+| REST contracts, season data, and WSS | [Season matches API](development/season-matches-api.md) |
+| Navigation, feature structure, and UI behavior | [Frontend](development/frontend.md) |
+| Color themes and motion preferences | [Event themes](development/event-themes.md) |
+| Release, backups, and rollback | [Deployment plan](operations/deployment-plan.md) |
+| Decisions and trade-offs | [Architecture decisions](decisions/README.md) |
+| Provider feeds and retained records | [API-Football findings](research/2026-10-31-api-football.md) · [Data retention](planning/provider-data-retention.md) |
+| Football model | [Catalog model](planning/football-data-model.md) |
+| Early design and legacy rules | [Visual research](research/2026-10-29-uefa-visual-research.md) · [Legacy behavior](domain/legacy-behavior.md) · [First slice](planning/first-slice.md) |

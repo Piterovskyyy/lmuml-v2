@@ -34,7 +34,7 @@ Nie obiecujemy wysokiej dostępności ani wdrożeń bez przerwy na jednym VPS. K
 | Release | Manifest pary obrazów i wersji migracji, opis zmiany i dostępny poprzedni manifest | Samo wydanie nie przełącza użytkowników |
 | Deploy | Ręcznie uruchamiane wdrożenie konkretnego manifestu, kontrola stanu, test podstawowej ścieżki | Dedykowany dostęp wdrożeniowy z ustalonym zakresem |
 
-Pierwszy workflow CI obejmuje testy i budowę obrazów oraz sprawdzenie [próby HTTPS](rehearsal.md#weryfikacja-w-github-actions) na runnerze. Obrazy w tym zadaniu służą do sprawdzenia działania stosu. Manifest wydania i rejestr obrazów to osobny etap.
+Pierwszy workflow CI obejmuje testy i budowę obrazów oraz sprawdzenie [próby HTTPS](rehearsal.md#github-actions-verification) na runnerze. Obrazy w tym zadaniu służą do sprawdzenia działania stosu. Manifest wydania i rejestr obrazów to osobny etap.
 
 Obraz budujemy raz i wdrażamy ten sam digest; nie kompilujemy ponownie na VPS. Wydania nie opierają się wyłącznie na zmiennym tagu `latest`. Akcje zewnętrzne przypinamy do sprawdzonych SHA, uprawnienia workflow ograniczamy do jego zadania. [Publikowanie obrazów w GitHub Actions](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images).
 

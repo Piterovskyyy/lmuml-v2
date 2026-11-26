@@ -1,10 +1,10 @@
-# Demonstracja LMuML
+# LMuML demo
 
-Materiały pokazują działający build aplikacji z fikcyjnymi klubami, zawodnikami, typami i punktami. Do nagrania użyto osobnej instancji HTTPS z trzema rundami. [Podstawowa próba lokalna](../operations/rehearsal.md) uruchamia osobny sezon z dwiema demonstracyjnymi kartami meczów.
+The recordings and screenshots show a running build with fictional clubs, players, predictions, and points. The walkthrough uses a separate HTTPS instance with three rounds. The [local rehearsal](../operations/rehearsal.md) starts with two sample fixtures in its own database.
 
-| Materiał | Co pokazuje |
+| Preview | What to look for |
 | --- | --- |
-| [Start na desktopie](start-desktop.webp) | Aktywną rundę i wejścia do klasyfikacji oraz rozgrywek |
-| [Typowanie na telefonie](typowanie-mobile.webp) | Pola wyniku i potwierdzenie zapisu typu |
-| [Ranking na desktopie](ranking-desktop.webp) | Miejsca graczy i punkty z rozegranych rund |
-| [Przebieg gracza](przebieg-gracza.webp) | Przejście ze strony głównej do zapisania zmiany typu i otwarcia klasyfikacji |
+| [Desktop home screen](start-desktop.webp) | The active round and shortcuts to standings and fixtures |
+| [Mobile predictions](typowanie-mobile.webp) | Score fields and confirmation that a prediction was saved |
+| [Desktop standings](ranking-desktop.webp) | Player positions and points from completed rounds |
+| [Player walkthrough](przebieg-gracza.webp) | Opening a round, saving a changed prediction, and viewing the rankings |

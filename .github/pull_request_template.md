@@ -1,15 +1,15 @@
-## Zmiana
+## Scope
 
-<!-- Opisz, co użytkownik lub operator może teraz zrobić. -->
+<!-- Describe what a player or operator can now do. -->
 
-## Przebieg
+## Walkthrough
 
-<!-- Dodaj własny zrzut i krótkie nagranie na danych demonstracyjnych. Opisz efekt i kroki. Dla zmian bez widoku pokaż wynik żądania, migracji lub testu. -->
+<!-- Add a screenshot and a short recording on demo data. For changes without a UI, show a request, a migration, or a test result. -->
 
-## Weryfikacja
+## Verification
 
-<!-- Podaj wykonane komendy, scenariusz ręczny oraz warunki testu. -->
+<!-- List the commands and manual scenarios you ran. -->
 
-## Wydanie
+## Release notes
 
-<!-- Wskaż migracje, konfigurację i istotne skutki wdrożenia, jeśli występują. -->
+<!-- Include migration, configuration, or rollout details when relevant. -->
