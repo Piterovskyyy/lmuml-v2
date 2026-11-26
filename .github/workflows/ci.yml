@@ -57,3 +57,33 @@ jobs:
           cache: false
       - name: Run Maven verify with Testcontainers
         run: mise exec java -- sh backend/mvnw --batch-mode --no-transfer-progress -f backend/pom.xml verify
+
+  rehearsal:
+    name: Build images and verify HTTPS rehearsal
+    runs-on: ubuntu-24.04
+    needs: [frontend, backend]
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@924e7c586e33d7d4bae9c14e26c5d22e2beb6e78 # v5.3.0
+        with:
+          version: '2026.11.14'
+          install_args: node
+          cache: false
+      - name: Build backend and web images
+        run: docker compose -f deploy/rehearsal/compose.yaml build
+      - name: Start the rehearsal stack
+        run: docker compose -f deploy/rehearsal/compose.yaml up --detach --wait --wait-timeout 90
+      - name: Verify HTTPS, WebSocket and prediction save
+        run: |
+          ca_file="$RUNNER_TEMP/lmuml-rehearsal-ca.crt"
+          docker compose -f deploy/rehearsal/compose.yaml cp web:/data/caddy/pki/authorities/local/root.crt "$ca_file"
+          NODE_EXTRA_CA_CERTS="$ca_file" mise exec node -- node scripts/check-rehearsal.mjs --with-player
+      - name: Show rehearsal logs on failure
+        if: failure()
+        run: docker compose -f deploy/rehearsal/compose.yaml logs --no-color --tail 100
+      - name: Stop the rehearsal stack
+        if: always()
+        run: docker compose -f deploy/rehearsal/compose.yaml down
